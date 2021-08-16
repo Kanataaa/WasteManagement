@@ -5,6 +5,7 @@ let amtDiv = document.querySelector("#amtDiv");
 
 let choiceDiv = document.querySelector("#choice");
 let ugoalDiv = document.querySelector("#userGoal");
+let utGoalDiv = document.querySelector("#userText");
 let wgoalDiv = document.querySelector("#webGoal");
 
 
@@ -12,7 +13,7 @@ let catagoryInput = document.querySelector("#catagory");
 let cText = document.querySelector("#cText")
 
 
-// New inputs.
+// Element Creation
 
 let newBreak = document.createElement("hr");
 
@@ -25,17 +26,24 @@ let perText = document.createElement("p");
 
 let goalInput = document.createElement("input");
 
+
+
 // Functions
 
-submitOneButton.onclick = function(event) {
-    event.preventDefault();
+submitOneButton.onclick = function(event) { // Submit button click
+    event.preventDefault(); // Prevent Web Refresh
+
+    // Reset Calculations / Divs
     ugoalDiv.style.display = "";
     ugoalDiv.innerHTML = "";
 
     wgoalDiv.style.display = "";
     wgoalDiv.innerHTML = "";
 
-    if (catagoryInput.value != "") {
+    utGoalDiv.style.display = "";
+    utGoalDiv.innerHTML = "";
+    
+    if (catagoryInput.value != "") { // Catagory is not empty then run.
         choiceDiv.appendChild(newBreak);
 
         userGoal.innerHTML = "I would like to choose my own goal.";
@@ -44,7 +52,7 @@ submitOneButton.onclick = function(event) {
         choiceDiv.appendChild(userGoal);
         choiceDiv.appendChild(webGoal);
 
-        userGoal.onclick = function(event) {
+        userGoal.onclick = function(event) { // Option 1
             console.log("User sets their own goal.");
             webGoal.remove();
 
@@ -59,17 +67,23 @@ submitOneButton.onclick = function(event) {
             ugoalDiv.appendChild(goalInput);
             ugoalDiv.appendChild(perSymb);
 
-            goalInput.addEventListener("keyup", function(event){
+            goalInput.addEventListener("keyup", function(event){ // Enter keyup listener
                 if (event.key === "Enter") {
                     if (goalInput.value != "") {
                         
-                        let num = (catagoryInput.value/100)*goalInput.value;
+
+                        // Percentage Calc
+                        let num = catagoryInput.value - (catagoryInput.value/100)*goalInput.value;
                         let userTrashGoal = num.toFixed(1);
+
+                        perText.style.fontSize = "22px";
+                        gText.style.fontSize = "22px";
+
                         perText.innerHTML = "You have set your reduction percentage to " + goalInput.value + "%";  
                         gText.innerHTML = "Your goal will be to reduce trash down to only " + userTrashGoal + "kg!";
 
-                        ugoalDiv.appendChild(perText);
-                        ugoalDiv.appendChild(gText);
+                        utGoalDiv.appendChild(perText);
+                        utGoalDiv.appendChild(gText);
                     } else {
                         alert("Please input a number for your percentage.")
                     }
@@ -79,10 +93,11 @@ submitOneButton.onclick = function(event) {
 
         }
 
-        webGoal.onclick = function(event) {
+        webGoal.onclick = function(event) { // Option 2
             console.log("We set the users goal.")
             userGoal.remove();
 
+            // Percentage Calc
             let num = catagoryInput.value - (catagoryInput.value * 0.3);
             let webTrashGoal = num.toFixed(1);
 
@@ -97,7 +112,7 @@ submitOneButton.onclick = function(event) {
         }
 
 
-    } else {
+    } else { // No input on start / Wrong input.
         alert("Please input an approximate weight of your trash in kilograms.")
     }
 
