@@ -1,0 +1,70 @@
+body {
+    background: pink;
+}
+
+.subtext {
+    max-width: 650px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#formOne {
+    display: flex;
+}
+
+#catagory {
+    width: 440px;
+    margin-right: 7px;
+    border: inset turquoise;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#submitOne {
+    margin-left: 17px;
+    padding: 7px;
+    border-radius: 7px;
+    border: turquoise 3px inset;
+    background-color: white;
+    color: turquoise
+}
+
+#submitOne:hover {
+    animation: fadeIn 0.23s forwards;
+}
+
+#choice button{
+    padding: 7px;
+    margin: 5px;
+    border-radius: 7px;
+    border: turquoise 3px inset;
+    background-color: white;
+    color: turquoise;
+}
+
+#choice button:hover {
+    animation: fadeIn 0.23s forwards;
+}
+
+#userGoal input {
+    width: 280px;
+    margin: 5px;
+    margin-top: 11px;
+    border: inset turquoise;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+@keyframes fadeIn {
+    from {
+        background-color: white;
+        color: turquoise;
+        padding: 7px;
+    }
+
+    to {
+        background-color: turquoise;
+        color: white;
+        padding: 11px;
+    }
+}
