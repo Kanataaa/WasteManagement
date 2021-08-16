@@ -27,6 +27,8 @@ let goalInput = document.createElement("input");
 
 submitOneButton.onclick = function(event) {
     event.preventDefault();
+    ugoalDiv.style.display = "";
+    ugoalDiv.innerHTML = "";
 
     if (catagoryInput.value != "") {
         choiceDiv.appendChild(newBreak);
@@ -45,6 +47,8 @@ submitOneButton.onclick = function(event) {
             perText.innerHTML = "%";
             perText.style.fontSize = "19px";
 
+            ugoalDiv.style.display = "flex";
+
             ugoalDiv.appendChild(goalInput);
             ugoalDiv.appendChild(perText);
 
@@ -54,10 +58,10 @@ submitOneButton.onclick = function(event) {
             console.log("We set the users goal.")
             userGoal.remove();
 
-            let webTrashGoal = Math.floor(catagoryInput.value * 0.3) 
+            let webTrashGoal = catagoryInput.value - Math.floor(catagoryInput.value * 0.3);
 
             perText.innerHTML = "We will automatically set your reduction percentage to 30%!";
-            gText.innerHTML = "Your goal will be to reduce trash to: " + webTrashGoal + " kg from " + catagoryInput.value + "!";
+            gText.innerHTML = "Your goal will be to reduce trash down to only " + webTrashGoal + "kg!";
             perText.style.fontSize = "22px";
             gText.style.fontSize = "22px";
 
