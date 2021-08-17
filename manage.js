@@ -8,3 +8,5 @@ console.log(weightPrediction);
 console.log(percReduc);
 console.log(TTO);
 
+
+
