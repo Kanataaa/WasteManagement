@@ -4,11 +4,41 @@ body {
 
 #infoRecorder input {
     margin: 5px;
+    margin-left: 17px;
     font-size: 15px;
 }
 
-hr {
-    height: 1.2px;
-    background: black;
-    border: solid 0.6px black;
+button {
+    padding: 7px;
+    margin: 5px;
+    margin-left: 17px;
+    margin-top: 22px;
+    border-radius: 7px;
+    border: purple 3px inset;
+    background-color: white;
+    color: purple;
 }
+
+button:hover {
+    animation: fadeIn 0.23s forwards;
+}
+
+#infoRecorder label {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+    from {
+        background-color: white;
+        color: purple;
+        padding: 7px;
+    }
+
+    to {
+        background-color: purple;
+        color: white;
+        padding: 11px;
+    }
+}
+

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
     <link rel="stylesheet" href="manage.css">
     <script src="manage.js" defer></script>
     <title>Waste Management</title>
@@ -12,12 +14,40 @@
     <hr>
 
     <form id="infoRecorder">
-        <input id="type" placeholder="e.g Plastic Bag / Cans / etc"> <label>Type of Trash</label> <br> 
+        <input id="type" placeholder="Plastic Bag / Cans / etc"> <label>Type of Trash</label> <br> 
         <input type="number" id="weight" placeholder="Weight of the trash"> <label>kg</label> <br>
-        <input type="number" id="amount" placeholder="Amount of trash (set to 1x)"> <label>Amount (optional)</label> <br>
+        <input type="number" id="amount" placeholder="Amount of trash item"> <label>Amount (optional)</label> <br>
         <input type="date" id="date"> <label>Date</label> <br>
     </form>
 
+    <button id="append">Submit</button>
     <hr>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-2 typeAppend">
+                <p>Type of Trash</p>
+            </div>
+
+            <div class="col-sm-6 weightAppend">
+                <p>Weight (kg)</p>
+            </div>
+
+            <div class="col-sm-1 offset-sm-2 amountAppend">
+                <p>Amount</p>
+            </div>
+
+            <div class="col-sm-1 dateAppend">
+                <p>Date</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+
 </body>
 </html>
