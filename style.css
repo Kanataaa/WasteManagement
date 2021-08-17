@@ -6,7 +6,7 @@ button:hover {
     animation: fadeIn 0.23s forwards;
 }
 
-.subtext {
+#subtext {
     max-width: 650px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

@@ -1,7 +1,8 @@
 // Declaring Variables
-let subtext = document.querySelector(".subtext");
+let subtext = document.querySelector("#subtext");
 let submitOneButton = document.querySelector("#submitOne");
 let amtDiv = document.querySelector("#amtDiv");
+let formOne = document.querySelector("#formOne");
 
 let choiceDiv = document.querySelector("#choice");
 let ugoalDiv = document.querySelector("#userGoal");
@@ -10,8 +11,7 @@ let wgoalDiv = document.querySelector("#webGoal");
 
 
 let catagoryInput = document.querySelector("#catagory");
-let cText = document.querySelector("#cText")
-
+let header = document.querySelector("#header");
 
 // Element Creation
 
@@ -29,7 +29,6 @@ let conText = document.createElement("p");
 let goalInput = document.createElement("input");
 
 
-
 // Functions
 
 submitOneButton.onclick = function(event) { // Submit button click
@@ -44,7 +43,7 @@ submitOneButton.onclick = function(event) { // Submit button click
 
     utGoalDiv.style.display = "";
     utGoalDiv.innerHTML = "";
-    
+
     if (catagoryInput.value != "") { // Catagory is not empty then run.
         choiceDiv.appendChild(newBreak);
 
@@ -94,7 +93,20 @@ submitOneButton.onclick = function(event) { // Submit button click
                         utGoalDiv.appendChild(conButton);
 
                         conButton.onclick = function() {
+
                             console.log("User Confirmed.")
+
+                            var percReduc = localStorage["percReduc"];
+                            localStorage["percReduc"] = goalInput.valueAsNumber;
+
+                            var weightPrediction = localStorage["weightPrediction"];
+                            localStorage["weightPrediction"] = catagoryInput.value;
+
+                            var TrashGoalOne = localStorage["TrashGoalOne"];
+                            localStorage["TrashGoalOne"] = userTrashGoal;
+
+                            window.location.href = "manage.html";
+
                         }
 
 
@@ -133,6 +145,18 @@ submitOneButton.onclick = function(event) { // Submit button click
 
             wgoalDiv.appendChild(conText);
             wgoalDiv.appendChild(conButton);
+
+            conButton.onclick = function() {
+                console.log("User confirmed.");
+
+                var TrashGoalTwo = localStorage["TrashGoalTwo"];
+                localStorage["TrashGoalTwo"] = webTrashGoal;
+
+                var weightPrediction = localStorage["weightPrediction"];
+                localStorage["weightPrediction"] = catagoryInput.value;
+
+                window.location.href = "manage2.html";
+            }
         }
 
 
@@ -141,6 +165,4 @@ submitOneButton.onclick = function(event) { // Submit button click
     }
 
 }
-
-
 
