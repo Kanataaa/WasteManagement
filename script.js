@@ -19,10 +19,12 @@ let newBreak = document.createElement("hr");
 
 let userGoal = document.createElement("button");
 let webGoal = document.createElement("button");
+let conButton = document.createElement("button");
 
 let perSymb = document.createElement("p");
 let gText = document.createElement("p");
 let perText = document.createElement("p");
+let conText = document.createElement("p");
 
 let goalInput = document.createElement("input");
 
@@ -69,7 +71,7 @@ submitOneButton.onclick = function(event) { // Submit button click
 
             goalInput.addEventListener("keyup", function(event){ // Enter keyup listener
                 if (event.key === "Enter") {
-                    if (goalInput.value != "") {
+                    if (goalInput.valueAsNumber < 101 && goalInput.value != "") {
                         
 
                         // Percentage Calc
@@ -84,6 +86,20 @@ submitOneButton.onclick = function(event) { // Submit button click
 
                         utGoalDiv.appendChild(perText);
                         utGoalDiv.appendChild(gText);
+
+                        conButton.innerHTML = "Confirm";
+                        conText.innerHTML = "Are you sure you want to confirm? You can still set a new goal and prediciton.";
+
+                        utGoalDiv.appendChild(conText);
+                        utGoalDiv.appendChild(conButton);
+
+                        conButton.onclick = function() {
+                            console.log("User Confirmed.")
+                        }
+
+
+                    } else if (goalInput.valueAsNumber >= 101) {
+                        alert("Please input a number in the range of 1 to 100.")
                     } else {
                         alert("Please input a number for your percentage.")
                     }
@@ -109,6 +125,14 @@ submitOneButton.onclick = function(event) { // Submit button click
 
             wgoalDiv.appendChild(perText);
             wgoalDiv.appendChild(gText);
+
+            conButton.innerHTML = "Confirm";
+            conText.innerHTML = "Are you sure you want to confirm? You can still set a new goal and prediciton.";
+            conText.style.fontSize = "22px";
+            conText.style.maxWidth = "525px";
+
+            wgoalDiv.appendChild(conText);
+            wgoalDiv.appendChild(conButton);
         }
 
 
@@ -117,3 +141,6 @@ submitOneButton.onclick = function(event) { // Submit button click
     }
 
 }
+
+
+

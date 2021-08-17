@@ -2,6 +2,10 @@ body {
     background: pink;
 }
 
+button:hover {
+    animation: fadeIn 0.23s forwards;
+}
+
 .subtext {
     max-width: 650px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -28,9 +32,6 @@ body {
     color: turquoise
 }
 
-#submitOne:hover {
-    animation: fadeIn 0.23s forwards;
-}
 
 #choice button{
     padding: 7px;
@@ -41,10 +42,6 @@ body {
     color: turquoise;
 }
 
-#choice button:hover {
-    animation: fadeIn 0.23s forwards;
-}
-
 #userGoal input {
     width: 290px;
     margin: 5px;
@@ -53,6 +50,25 @@ body {
     border-radius: 5px;
     padding: 5px;
 }
+
+#userText button{
+    padding: 7px;
+    margin: 5px;
+    border-radius: 7px;
+    border: turquoise 3px inset;
+    background-color: white;
+    color: turquoise;
+}
+
+#webGoal button {
+    padding: 7px;
+    margin: 5px;
+    border-radius: 7px;
+    border: turquoise 3px inset;
+    background-color: white;
+    color: turquoise;
+}
+
 
 
 @keyframes fadeIn {
