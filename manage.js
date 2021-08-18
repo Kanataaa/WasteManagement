@@ -5,8 +5,13 @@ let TTO = localStorage.getItem("TrashGoalOne");
 
 // Document Variables
 
+
+// Parent Divs
+let infoRec = document.querySelector("#infoRecorder");
+
 // Buttons
 let submitButton = document.querySelector("#append");
+let endButton = document.querySelector("#end");
 
 // Inputs
 let typeInput = document.querySelector("#type");
@@ -23,6 +28,7 @@ let dateDiv = document.querySelector(".dateAppend");
 // Other
 
 let numOfInputs = 0;
+let totalWeight = 0;
 
 submitButton.onclick = function(event) { // Submit Button Click Listener
     event.preventDefault();
@@ -42,6 +48,11 @@ submitButton.onclick = function(event) { // Submit Button Click Listener
         newWeight.innerHTML = weightInput.value;
         newAmount.innerHTML = amountInput.value + "x";
         newDate.innerHTML = dateInput.value;
+
+        totalWeight += parseFloat(weightInput.value * amountInput.value);
+        console.log(totalWeight);
+
+        
 
         // Appending Perams
 
@@ -64,5 +75,23 @@ submitButton.onclick = function(event) { // Submit Button Click Listener
     }
 }
 
+endButton.onclick = function(event) { // End Session Button
+    event.preventDefault();
 
+    if (confirm("Are you sure you want to end this sesion?")) {
+        infoRec.remove();
+        submitButton.remove();
+
+        if (totalWeight < TTO) {
+            console.log("User succeeded in their goal.")
+
+            
+
+        }
+
+        
+    } else {
+
+    }
+}
 

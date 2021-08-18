@@ -8,6 +8,11 @@ body {
     font-size: 15px;
 }
 
+.largeFont {
+    font-weight: bold;
+    font-size: 22px;
+}
+
 button {
     padding: 7px;
     margin: 5px;
