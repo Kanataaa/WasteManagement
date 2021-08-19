@@ -6,6 +6,7 @@ body {
     margin: 5px;
     margin-left: 17px;
     font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .largeFont {
@@ -24,6 +25,15 @@ button {
     color: purple;
 }
 
+input {
+    width: 230px;
+    margin: 5px;
+    margin-top: 11px;
+    border: inset turquoise;
+    border-radius: 15px;
+    padding: 3px;
+}
+
 button:hover {
     animation: fadeIn 0.23s forwards;
 }
@@ -32,6 +42,12 @@ button:hover {
     font-size: 17px;
     font-weight: bold;
 }
+
+.textBold {
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 
 @keyframes fadeIn {
     from {

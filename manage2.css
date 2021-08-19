@@ -28,6 +28,15 @@ button:hover {
     font-weight: bold;
 }
 
+input {
+    width: 230px;
+    margin: 5px;
+    margin-top: 11px;
+    border: inset turquoise;
+    border-radius: 15px;
+    padding: 3px;
+}
+
 @keyframes fadeIn {
     from {
         background-color: white;

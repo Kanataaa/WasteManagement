@@ -9,6 +9,8 @@ button:hover {
 #subtext {
     max-width: 650px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-left: 625px;
 }
 
 #formOne {
@@ -19,7 +21,7 @@ button:hover {
     width: 440px;
     margin-right: 7px;
     border: inset turquoise;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 5px;
 }
 
@@ -42,12 +44,16 @@ button:hover {
     color: turquoise;
 }
 
+#choice {
+    text-align: center;
+}
+
 #userGoal input {
     width: 290px;
     margin: 5px;
     margin-top: 11px;
     border: inset turquoise;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 5px;
 }
 
@@ -69,7 +75,11 @@ button:hover {
     color: turquoise;
 }
 
-
+#formOne,
+#header {
+    display: flex;
+    justify-content: center;
+}
 
 @keyframes fadeIn {
     from {

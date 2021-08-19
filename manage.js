@@ -75,6 +75,7 @@ submitButton.onclick = function(event) { // Submit Button Click Listener
         weightDiv.appendChild(newWeight);
         amountDiv.appendChild(newAmount);
         dateDiv.appendChild(newDate);
+
         dateList.push(dateInput.value);
 
         // Clearing Perams

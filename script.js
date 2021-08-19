@@ -9,7 +9,6 @@ let ugoalDiv = document.querySelector("#userGoal");
 let utGoalDiv = document.querySelector("#userText");
 let wgoalDiv = document.querySelector("#webGoal");
 
-
 let catagoryInput = document.querySelector("#catagory");
 let header = document.querySelector("#header");
 
@@ -64,6 +63,7 @@ submitOneButton.onclick = function(event) { // Submit button click
             perSymb.style.fontSize = "19px";
 
             ugoalDiv.style.display = "flex";
+            ugoalDiv.style.justifyContent = "center";
 
             ugoalDiv.appendChild(goalInput);
             ugoalDiv.appendChild(perSymb);
@@ -85,6 +85,8 @@ submitOneButton.onclick = function(event) { // Submit button click
 
                         utGoalDiv.appendChild(perText);
                         utGoalDiv.appendChild(gText);
+
+                        utGoalDiv.style.textAlign = "center";
 
                         conButton.innerHTML = "Confirm";
                         conText.innerHTML = "Are you sure you want to confirm? You can still set a new goal and prediciton.";
