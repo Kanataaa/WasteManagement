@@ -52,6 +52,11 @@ submitOneButton.onclick = function(event) { // Submit button click
         choiceDiv.appendChild(userGoal);
         choiceDiv.appendChild(webGoal);
 
+        // choiceDiv.style.animation = "moveUpOpacity 1s forwards";
+
+        userGoal.style.animation = "moveUpOpacity 1s forwards";
+        webGoal.style.animation = "moveUpOpacity 1s forwards";
+
         userGoal.onclick = function(event) { // Option 1
             console.log("User sets their own goal.");
             webGoal.remove();
