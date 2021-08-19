@@ -24,11 +24,24 @@ let typeDiv = document.querySelector(".typeAppend");
 let weightDiv = document.querySelector(".weightAppend");
 let amountDiv = document.querySelector(".amountAppend");
 let dateDiv = document.querySelector(".dateAppend");
+let statDiv = document.querySelector(".statAppend")
+
+// One time element creation
+
+let goalText = document.createElement("p");
+let percText = document.createElement("p");
+let finalTotal = document.createElement("p");
+let totalReduced = document.createElement("p");
+let dateStart = document.createElement("p");
+let dateEnd = document.createElement("p");
+let tipsText = document.createElement("p");
+let statText = document.createElement("p");
 
 // Other
 
 let numOfInputs = 0;
 let totalWeight = 0;
+let dateList = [];
 
 submitButton.onclick = function(event) { // Submit Button Click Listener
     event.preventDefault();
@@ -50,6 +63,8 @@ submitButton.onclick = function(event) { // Submit Button Click Listener
         newDate.innerHTML = dateInput.value;
 
         totalWeight += parseFloat(weightInput.value * amountInput.value);
+        
+        
         console.log(totalWeight);
 
         
@@ -60,6 +75,7 @@ submitButton.onclick = function(event) { // Submit Button Click Listener
         weightDiv.appendChild(newWeight);
         amountDiv.appendChild(newAmount);
         dateDiv.appendChild(newDate);
+        dateList.push(dateInput.value);
 
         // Clearing Perams
 
@@ -83,10 +99,53 @@ endButton.onclick = function(event) { // End Session Button
         submitButton.remove();
 
         if (totalWeight < TTO) {
-            console.log("User succeeded in their goal.")
+            console.log("User succeeded in their goal.");
 
+            statText.innerHTML = "Final Statistics: ";
+            percText.innerHTML = "You wanted to reduce trash by: " + percReduc + "%";
+            goalText.innerHTML = "Your Goal was: " + TTO + " kg <br>";
+            finalTotal.innerHTML = "The final weight on your trash was: " +  totalWeight.toFixed(1) + " kg";
             
+            let num = TTO - totalWeight;
+            let redTrash = num.toFixed(1);
+            totalReduced.innerHTML = "You reduced a total of " + redTrash + " kg of trash!" + "<br>";
 
+            dateStart.innerHTML = "Date Start : " + dateList[0];
+            dateEnd.innerHTML = "Date End : " + dateList[dateList.length - 1];
+
+            statDiv.appendChild(statText);
+            statDiv.appendChild(percText);
+            statDiv.appendChild(goalText);
+            statDiv.appendChild(finalTotal);
+            statDiv.appendChild(totalReduced);
+            statDiv.appendChild(dateStart);
+            statDiv.appendChild(dateEnd);
+
+        } else {
+            infoRec.remove();
+            submitButton.remove();
+
+            console.log("User failed in their goal.")
+
+            statText.innerHTML = "Final Statistics: ";
+            percText.innerHTML = "You wanted to reduce trash by: " + percReduc + "%";
+            goalText.innerHTML = "Your Goal was: " + TTO + " kg <br>"
+            finalTotal.innerHTML = "The final weight on your trash was: " + totalWeight.toFixed(1) + " kg";
+
+            let num = totalWeight - TTO;
+            let gainTrash = num.toFixed(1);
+            totalReduced.innerHTML = "You gained a total of " + gainTrash + " kg of trash! <br>";
+            
+            dateStart.innerHTML = "Date Start : " + dateList[0];
+            dateEnd.innerHTML = "Date End : " + dateList[dateList.length - 1];
+
+            statDiv.appendChild(statText);
+            statDiv.appendChild(percText);
+            statDiv.appendChild(goalText);
+            statDiv.appendChild(finalTotal);
+            statDiv.appendChild(totalReduced);
+            statDiv.appendChild(dateStart);
+            statDiv.appendChild(dateEnd);
         }
 
         

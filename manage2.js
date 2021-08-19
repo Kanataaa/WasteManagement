@@ -1,12 +1,16 @@
 // Grabbing Values from other HTML/JS doc.
 let weightPrediction = localStorage.getItem("weightPrediction");
 let TTW = localStorage.getItem("TrashGoalTwo");
-let percReduc = 0.3;
 
 // Document Variables
 
+
+// Parent Divs
+let infoRec = document.querySelector("#infoRecorder");
+
 // Buttons
 let submitButton = document.querySelector("#append");
+let endButton = document.querySelector("#end");
 
 // Inputs
 let typeInput = document.querySelector("#type");
@@ -19,10 +23,24 @@ let typeDiv = document.querySelector(".typeAppend");
 let weightDiv = document.querySelector(".weightAppend");
 let amountDiv = document.querySelector(".amountAppend");
 let dateDiv = document.querySelector(".dateAppend");
+let statDiv = document.querySelector(".statAppend")
+
+// One time element creation
+
+let goalText = document.createElement("p");
+let percText = document.createElement("p");
+let finalTotal = document.createElement("p");
+let totalReduced = document.createElement("p");
+let dateStart = document.createElement("p");
+let dateEnd = document.createElement("p");
+let tipsText = document.createElement("p");
+let statText = document.createElement("p");
 
 // Other
 
 let numOfInputs = 0;
+let totalWeight = 0;
+let dateList = [];
 
 submitButton.onclick = function(event) { // Submit Button Click Listener
     event.preventDefault();
@@ -43,12 +61,20 @@ submitButton.onclick = function(event) { // Submit Button Click Listener
         newAmount.innerHTML = amountInput.value + "x";
         newDate.innerHTML = dateInput.value;
 
+        totalWeight += parseFloat(weightInput.value * amountInput.value);
+        
+        
+        console.log(totalWeight);
+
+        
+
         // Appending Perams
 
         typeDiv.appendChild(newType);
         weightDiv.appendChild(newWeight);
         amountDiv.appendChild(newAmount);
         dateDiv.appendChild(newDate);
+        dateList.push(dateInput.value);
 
         // Clearing Perams
 
@@ -64,5 +90,67 @@ submitButton.onclick = function(event) { // Submit Button Click Listener
     }
 }
 
+endButton.onclick = function(event) { // End Session Button
+    event.preventDefault();
 
+    if (confirm("Are you sure you want to end this sesion?")) {
+        infoRec.remove();
+        submitButton.remove();
+
+        if (totalWeight < TTW) {
+            console.log("User succeeded in their goal.");
+
+            statText.innerHTML = "Final Statistics: ";
+            percText.innerHTML = "You wanted to reduce trash by: 30%";
+            goalText.innerHTML = "Your Goal was: " + TTW + " kg <br>";
+            finalTotal.innerHTML = "The final weight on your trash was: " +  totalWeight.toFixed(1) + " kg";
+            
+            let num = TTW - totalWeight;
+            let redTrash = num.toFixed(1);
+            totalReduced.innerHTML = "You reduced a total of " + redTrash + " kg of trash! <br>";
+
+            dateStart.innerHTML = "Date Start : " + dateList[0];
+            dateEnd.innerHTML = "Date End : " + dateList[dateList.length - 1];
+
+            statDiv.appendChild(statText);
+            statDiv.appendChild(percText);
+            statDiv.appendChild(goalText);
+            statDiv.appendChild(finalTotal);
+            statDiv.appendChild(totalReduced);
+            statDiv.appendChild(dateStart);
+            statDiv.appendChild(dateEnd);
+
+            
+        } else {
+            infoRec.remove();
+            submitButton.remove();
+
+            console.log("User failed in their goal.")
+
+            statText.innerHTML = "Final Statistics: ";
+            percText.innerHTML = "You wanted to reduce trash by: 30%";
+            goalText.innerHTML = "Your Goal was: " + TTW + " kg <br>"
+            finalTotal.innerHTML = "The final weight on your trash was: " + totalWeight.toFixed(1) + " kg";
+
+            let num = totalWeight - TTW;
+            let gainTrash = num.toFixed(1);
+            totalReduced.innerHTML = "You gained a total of " + gainTrash + " kg of trash! <br>";
+            
+            dateStart.innerHTML = "Date Start : " + dateList[0];
+            dateEnd.innerHTML = "Date End : " + dateList[dateList.length - 1];
+
+            statDiv.appendChild(statText);
+            statDiv.appendChild(percText);
+            statDiv.appendChild(goalText);
+            statDiv.appendChild(finalTotal);
+            statDiv.appendChild(totalReduced);
+            statDiv.appendChild(dateStart);
+            statDiv.appendChild(dateEnd);
+        }
+
+        
+    } else {
+
+    }
+}
 
