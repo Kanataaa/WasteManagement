@@ -6,6 +6,7 @@ body {
     margin: 5px;
     margin-left: 17px;
     font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 button {
@@ -36,6 +37,12 @@ input {
     border-radius: 15px;
     padding: 3px;
 }
+
+.textBold {
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 
 @keyframes fadeIn {
     from {

@@ -136,15 +136,15 @@ submitOneButton.onclick = function(event) { // Submit button click
 
             perText.style.fontSize = "22px";
             gText.style.fontSize = "22px";
+            conButton.innerHTML = "Confirm";
+            conText.innerHTML = "Are you sure you want to confirm? You can still set a new goal and prediciton.";
+           
+            conText.style.fontSize = "22px";
+
+            wgoalDiv.style.textAlign = "center";
 
             wgoalDiv.appendChild(perText);
             wgoalDiv.appendChild(gText);
-
-            conButton.innerHTML = "Confirm";
-            conText.innerHTML = "Are you sure you want to confirm? You can still set a new goal and prediciton.";
-            conText.style.fontSize = "22px";
-            conText.style.maxWidth = "525px";
-
             wgoalDiv.appendChild(conText);
             wgoalDiv.appendChild(conButton);
 
